@@ -1,10 +1,20 @@
 package com.archivetech.demo.service;
 
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+@Service
+
 public class UpdateCSVService {
 
-    public String readCSVFile(){
+    public void readCSVFile(String path) throws IOException {
 // provide general template on how to read a csv file
-        return "";
+         Files.lines(Paths.get(path))
+                .skip(1)
+                .forEach(System.out::println);
     }
 
     public void writeCSVFile(){
